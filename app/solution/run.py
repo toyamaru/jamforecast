@@ -9,6 +9,9 @@ from sklearn.metrics import f1_score
 import warnings
 warnings.simplefilter('ignore')
 
+# モデル構築に使えるライブラリ
+from submit.src.predictor import ScoringService
+
 def make_dataset(traffic, ic_master, search_spec, search_unspec):
     # 欠損値の除外
     traffic = traffic[traffic['speed'].isnull()==False]
@@ -43,6 +46,17 @@ def parse_args():
 
     return args
 
+def expand_datetime(df):
+    if 'datetime' in df.columns:
+        df['year'] = df['datetime'].dt.year
+        df['month'] = df['datetime'].dt.month
+        df['day'] = df['datetime'].dt.day
+        df['hour'] = df['datetime'].dt.hour
+    if 'date' in df.columns:
+        df['year'] = df['date'].dt.year
+        df['month'] = df['date'].dt.month
+        df['day'] = df['date'].dt.day
+    return df
 
 def main():
     # parse the arguments
@@ -85,7 +99,6 @@ def main():
     sys.path.append(cwd)
 
     # load the model
-    from predictor import ScoringService
     print('\nLoading the model...', end = '\r')
     model_flag = ScoringService.get_model(model_path, train, train_log_pathes)
     if model_flag:
