@@ -1,0 +1,2 @@
+app/solution/train/train.csv filter=lfs diff=lfs merge=lfs -text
+app/solution/train/search_specified.csv filter=lfs diff=lfs merge=lfs -text
