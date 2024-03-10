@@ -1,5 +1,7 @@
-app/solution/.ipynb_chechpoints
-app/.ipynb_chechpoints
+app/solution/.ipynb_checkpoints/*
+app/solution/submit/.ipynb_checkpoints/*
+app/.ipynb_checkpoints/*
 app/.DS_Store
 .DS_Store
 app/solution/train/.DS_Store
+app/solution/submit/__pycache__/*
