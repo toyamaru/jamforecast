@@ -10,3 +10,5 @@ tqdm
 scikit-learn
 predictor
 optuna
+catboost
+xfeat
