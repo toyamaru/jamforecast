@@ -7,9 +7,10 @@ from sklearn.preprocessing import LabelEncoder
 class ScoringService(object):
     @classmethod
     def get_model(cls, model_path, inference_df, inference_log):
-        cls.model = lgb.Booster(model_file=f'{model_path}/model.txt')
-        #cls.data = inference_df
-        #cls.log_pathes = inference_log
+        #cls.model = lgb.Booster(model_file=f'{model_path}/model.txt')
+        cls.model = lgb.Booster(model_file='../model/model.txt')
+        cls.data = inference_df
+        cls.log_pathes = inference_log
 
         return True
 
